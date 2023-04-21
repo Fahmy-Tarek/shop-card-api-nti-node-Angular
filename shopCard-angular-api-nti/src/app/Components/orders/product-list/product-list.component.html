@@ -1,0 +1,40 @@
+
+<div>Order date {{orderDate | date}}</div>
+<hr>
+<div *ngIf="isAdmin">
+    <a href="/pr" class="btn btn-primary" >Add Product </a>
+</div>
+<table class="table">
+    <thead class="bg-light text-dark">
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th> Available Quantity</th>
+            <th>Price In EGP</th>
+            <th>Count</th>
+            <th>Details</th>
+            <th *ngIf="isAdmin">Delete</th>
+            <th *ngIf="isClient" >Buy</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of prdListOfCat; let i= index">
+            <td>{{i+1}}</td>
+            <td>{{product?.prdName}} </td>
+            <td>
+                {{product.quantity}}
+            </td>
+            <td>{{product.price | currency:'EGP':'code'}}</td> 
+            <td><input class="form-control" type="number" #ItemCount></td>
+            <td> <a class="btn btn-primary" [routerLink]="['/products',product._id]" role="button">Details</a></td>
+            <td *ngIf="isAdmin">
+                <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="delete(product._id)">
+                    Delete
+                </button>
+            </td>
+            <td  *ngIf="isClient">
+                <button class="btn btn-success" (click)="buy(product.price,ItemCount.value)">Add To Card</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr>

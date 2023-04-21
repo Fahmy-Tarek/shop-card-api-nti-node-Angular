@@ -1,0 +1,59 @@
+{
+	"info": {
+		"_postman_id": "aac94557-580c-42d7-8eca-a3249e7622bf",
+		"name": "api shop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "26810628"
+	},
+	"item": [
+		{
+			"name": "sinup-signin",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"fullName\":\"admin\",\r\n    \"password\":\"123456\",\r\n    \"email\":\"fahhmytarekfahmy@email.com\",\r\n    \"age\":34,\r\n    \"gender\":\"Female\",\r\n    \"role\":\"admin\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/signUp"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"password\":\"123456\",\r\n    \"email\":\"fahhmytarekfahmy@email.com\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/login"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}

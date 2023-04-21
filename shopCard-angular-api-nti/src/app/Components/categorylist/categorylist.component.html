@@ -1,0 +1,28 @@
+<a routerLink="/Category/add" class="btn btn-primary" >Add Category </a>
+
+<div class="table-responsive mt-3">
+  <table  class="table mt-3" style="box-shadow:  5px 5px 5px 5px rgb(180, 212, 223);">
+    <thead class="t_header" style="background-color:  rgb(180, 212, 223);">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col"> Description  </th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let category of categories,let i=index">
+        <td>{{i+1}}</td>
+        <td>{{category.catName}}</td>
+        <td>{{category.description}}</td>
+        <td>
+            <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="delete(category._id)">
+                Delete
+            </button>
+        </td>
+     
+      </tr>  
+    </tbody>
+  </table>
+</div>
